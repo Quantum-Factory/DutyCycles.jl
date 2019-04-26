@@ -11,6 +11,7 @@ cache:
 script:
 - julia -e "using Pkg; Pkg.build(); Pkg.test(coverage=true)" && julia docs/make.jl
 deploy:
+  skip_cleanup: true
   provider: script
   script: mv docs/build docs/DutyCycles.jl && echo -e 'put -r docs/DutyCycles.jl'
     | sftp -P $SSH_PORT $SSH_USER@$SSH_HOST:docs/github.com/Quantum-Factory
