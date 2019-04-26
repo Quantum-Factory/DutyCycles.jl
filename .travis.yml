@@ -9,9 +9,9 @@ script:
 deploy:
   skip_cleanup: true
   install:
-  - echo '|1|+lMBgaPmCgJ6DPoS5ZsKbX5SptA=|tL3k2cmk5G+2AHvvopwLuiuafBE= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAGp1W0jQ217mdjE0OvggNr/wg9kHYYgmlTcA/ObLKN5bCtPpMJGDdm/vAYbSFaBtHHiOAQQmPg6LejJuOhk7Zo=' >> $HOME/.ssh/known_hosts
-  - echo '|1|imTtcFGHchGTPyU6F0W1aehT/ps=|sj739mUSGi6dKtfh2k6zJ7moSOs= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAGp1W0jQ217mdjE0OvggNr/wg9kHYYgmlTcA/ObLKN5bCtPpMJGDdm/vAYbSFaBtHHiOAQQmPg6LejJuOhk7Zo=' >> $HOME/.ssh/known_hosts
-  - echo '|1|GWbsWgtMhH8cX4UEePPpu3WBhQw=|M1p60qf/++Bc/kgfZodB9bMCxU4= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAGp1W0jQ217mdjE0OvggNr/wg9kHYYgmlTcA/ObLKN5bCtPpMJGDdm/vAYbSFaBtHHiOAQQmPg6LejJuOhk7Zo=' >> $HOME/.ssh/known_hosts
+  - echo '|1|3vzijaMt0rOja2HxD1YGWLUZat0=|fvgapIPlRwTLU8aUhisi5Yc1X14= ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDypicw6GdbqBGMXgcrXoxRNUyOJWRBzv06a2TMlO7fQ34OSiekvBcJue7HLnFNYUpqlr7SHKynK8OcP8pFMntJEoDgIboWuFCphZhzEfBSjpryNF/Cp8jpF4vswi42FpbWCsooGn9NuXmW0isoCWQVEz73412gSvFnbgG/s8JSf21wlVl1yUDBI6m5btrikhGU34movU/3qQy44x/02pvBVAenTaSfH2IyjayUpr7vb0fF/inNCebmDAKitJ5vbfmVuoCYcZ0P+KSuR7XjVuFa2SbS5AJbUwKRj31tw4Fd1I1yii3XBKYm5DygkVCSIfTvu7Qi/B4nE97RymtSp5cr' >> $HOME/.ssh/known_hosts
+  - echo '|1|/aB/aWcOD3mNpzFPeoQw2/t6FtQ=|AM8ADRtUJ9Ox8TIN1vDWLnRfZTk= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAGp1W0jQ217mdjE0OvggNr/wg9kHYYgmlTcA/ObLKN5bCtPpMJGDdm/vAYbSFaBtHHiOAQQmPg6LejJuOhk7Zo=' >> $HOME/.ssh/known_hosts
+  - echo '|1|uXXqTdwVlFHHlVvtpULwG0Hf8Tc=|D0oZMJTt74RRtBbuQ1PQuZTpecc= ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILFrePFd+1xbvJivY6MdInlhY3x1F3DiazzTswAyHjvt' >> $HOME/.ssh/known_hosts
   provider: script
   script: mv docs/build docs/DutyCycles.jl && echo -e 'put -r docs/DutyCycles.jl'
     | sftp -P $SSH_PORT $SSH_USER@$SSH_HOST:docs/github.com/Quantum-Factory
