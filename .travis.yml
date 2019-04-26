@@ -1,0 +1,21 @@
+
+language: julia
+
+install:
+  - echo '|1|+lMBgaPmCgJ6DPoS5ZsKbX5SptA=|tL3k2cmk5G+2AHvvopwLuiuafBE= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAGp1W0jQ217mdjE0OvggNr/wg9kHYYgmlTcA/ObLKN5bCtPpMJGDdm/vAYbSFaBtHHiOAQQmPg6LejJuOhk7Zo=' >> $HOME/.ssh/known_hosts
+
+julia:
+  - 1.0
+
+cache:
+  directories:
+    - $HOME/.julia
+
+script:
+  - julia -e "using Pkg; Pkg.build(); Pkg.test(coverage=true)" && julia docs/make.jl
+
+deploy:
+  provider: script
+  script: mv docs/build docs/DutyCycles.jl && echo -e 'put -r docs/DutyCycles.jl' | sftp -P $SSH_PORT $SSH_USER@$SSH_HOST:docs/github.com/Quantum-Factory
+  on:
+    branch: master
