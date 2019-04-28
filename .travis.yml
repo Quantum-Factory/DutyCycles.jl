@@ -15,7 +15,7 @@ deploy:
   - mv docs/build docs/DutyCycles.jl
   - echo -e $SSH_KEY |base64 -d >$HOME/.ssh/id_rsa
   - chmod 600 $HOME/.ssh/id_rsa
-  - eval "$(ssh-agent -s)" #start the ssh agent
+  - ssh-add
   provider: script
   script: echo -e 'put -r docs/DutyCycles.jl' |sftp -P $SSH_PORT $SSH_USER@$SSH_HOST:docs/github.com/Quantum-Factory
   on:
