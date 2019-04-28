@@ -13,8 +13,11 @@ deploy:
   - echo '|1|/aB/aWcOD3mNpzFPeoQw2/t6FtQ=|AM8ADRtUJ9Ox8TIN1vDWLnRfZTk= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAGp1W0jQ217mdjE0OvggNr/wg9kHYYgmlTcA/ObLKN5bCtPpMJGDdm/vAYbSFaBtHHiOAQQmPg6LejJuOhk7Zo=' >> $HOME/.ssh/known_hosts
   - echo '|1|uXXqTdwVlFHHlVvtpULwG0Hf8Tc=|D0oZMJTt74RRtBbuQ1PQuZTpecc= ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILFrePFd+1xbvJivY6MdInlhY3x1F3DiazzTswAyHjvt' >> $HOME/.ssh/known_hosts
   provider: script
-  script: mv docs/build docs/DutyCycles.jl && echo -e 'put -r docs/DutyCycles.jl'
-    | sftp -P $SSH_PORT $SSH_USER@$SSH_HOST:docs/github.com/Quantum-Factory
+  script:
+  - mv docs/build docs/DutyCycles.jl
+  - echo -e $SSH_KEY |base64 -d >$HOME/.ssh/id_rsa
+  - chmod 600 $HOME/.ssh/id_rsa
+  - echo -e 'put -r docs/DutyCycles.jl' | sftp -P $SSH_PORT $SSH_USER@$SSH_HOST:docs/github.com/Quantum-Factory
   on:
     branch: master
 notifications:
