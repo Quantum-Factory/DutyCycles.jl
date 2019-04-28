@@ -49,7 +49,7 @@ is at least one element for which it is true.
 
 """
 _exists(coll) = (length(coll) > 0)
-_exists(predicate, coll) = !isnothing(findfirst(predicate, coll))
+_exists(predicate, coll) = findfirst(predicate, coll) !== nothing
 
 # Test if a number is rational (inclusive, in the sense of covering
 # interegers, too) or has an underlying type that is rational). The
@@ -306,7 +306,7 @@ end
 #    _autodefault(secondary...)
 #_firstactual(primary) = primary
 _firstactual(args...) = first(coalesce([
-    isnothing(arg) ? missing : arg for arg in args
+    arg === nothing ? missing : arg for arg in args
 ]...))
 
 # unzip, not a complete solution, just for the requirements of this

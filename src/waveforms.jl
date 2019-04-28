@@ -172,7 +172,7 @@ function spectrum(
     f0 = Measurements.value(f0m / Unitful.unit(f0m)) *
         Unitful.unit(f0m)
     # estimate number of harmonics, if not specified
-    if isnothing(harmonics)
+    if harmonics === nothing
         # To Do: make an estimate based on smallest width, etc.
         # mind = minimum(ds)
         # minv, maxv = extremavals(d)
@@ -202,7 +202,7 @@ function spectrum(
     # note that this is used to "transform" the Dirac delta function
     # omitted from (but implied in) ss[k] back to a normal number,
     # which influences the choice of units
-    if isnothing(resolution)
+    if resolution === nothing
         ct = coherencetime(d)
         if iszero(ct)
             resolution = f0 # To Do: reconsider if this is sensible

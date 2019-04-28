@@ -101,12 +101,7 @@ for op in [:isnan, :isinf]
     end
 end
 
-# the following definitions are somewhat nonsensical: at least
-# currently, DutyCycles are type-forbidden from assuming the values
-# `nothing` or `missing`.
-#
-# To Do: Consider removing these methods.
-for op in [:isnothing, :ismissing]
+for op in [:ismissing]
     # implement these functions such that they return true only if
     # they are true for all values the dutycycle assumes.
     @eval begin
@@ -118,5 +113,22 @@ for op in [:isnothing, :ismissing]
         """
         Core.@__doc__ Base.$op(a::AbstractDutyCycle) =
             !_exists(!$op, values(a))
+    end
+end
+
+if Base.VERSION >= v"1.1"
+    for op in [:isnothing]
+        # implement these functions such that they return true only if
+        # they are true for all values the dutycycle assumes.
+        @eval begin
+            """
+            
+            Return true for a dutycycle if `$($op)` is true for _all_
+            values assumed by the DutyCycle, and false otherwise.
+            
+            """
+            Core.@__doc__ Base.$op(a::AbstractDutyCycle) =
+                !_exists(!$op, values(a))
+        end
     end
 end

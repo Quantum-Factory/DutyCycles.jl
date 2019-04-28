@@ -9,7 +9,7 @@ before_install:
 - ssh-add $HOME/.ssh/id_rsa
 
 julia:
-- 1.1
+- 1.0
 
 cache:
   directories:
