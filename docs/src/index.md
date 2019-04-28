@@ -466,7 +466,6 @@ Base.isinf
     `nothing`.
 
 ```@docs
-Base.isnothing
 Base.ismissing
 ```
 
