@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Quantum-Factory/DutyCycles.jl.svg?branch=master)](https://travis-ci.org/Quantum-Factory/DutyCycles.jl)
+
 # DutyCycles.jl
 
 The package DutyCycleNumbers provides a special type of "numbers" for
