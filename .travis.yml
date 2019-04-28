@@ -15,6 +15,7 @@ deploy:
   - echo -e $SSH_KEY |base64 -d >$HOME/.ssh/id_rsa
   - chmod 600 $HOME/.ssh/id_rsa
   - ssh-add
+  - ssh-keyscan -H -p $SSH_PORT $SSH_HOST
   provider: script
   script: echo -e 'put -r docs/DutyCycles.jl' |sftp -vvv -P $SSH_PORT $SSH_USER@$SSH_HOST:docs/github.com/Quantum-Factory
   on:
