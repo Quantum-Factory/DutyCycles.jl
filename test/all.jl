@@ -61,19 +61,21 @@ function _typeof_promote(u, v, extrainfo="")
 end
 
 # the actual tests
-include("helpers.jl") # tests for src/helpers.jl
-include("constructors.jl") # tests for constructors*.jl
-include("constructor-like.jl") # tests for cycle, dutycycöe from
-                               # constructors.jl
-include("accessors.jl")
-include("promotion.jl")
-include("comparisons.jl")
-include("coherence.jl")
-include("operators.jl")
-include("mapreduce.jl")
-include("statistics.jl")
-include("waveforms.jl")
-include("regression.jl") # tests for past (and current) bugs
+@testset "DutyCycles" begin
+    include("helpers.jl") # tests for src/helpers.jl
+    include("constructors.jl") # tests for constructors*.jl
+    include("constructor-like.jl") # tests for cycle, dutycycle from
+                                   # constructors.jl
+    include("accessors.jl")
+    include("promotion.jl")
+    include("comparisons.jl")
+    include("coherence.jl")
+    include("operators.jl")
+    include("mapreduce.jl")
+    include("statistics.jl")
+    include("waveforms.jl")
+    include("regression.jl") # tests for past (and current) bugs
+end
 
 # the following include must come last, as these tests include messing
 # with defaults (the default_period method); however, To Do: One could
