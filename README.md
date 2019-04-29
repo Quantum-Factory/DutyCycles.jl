@@ -12,4 +12,4 @@ switching patterns are also possible.
 
 Documentation is avaliable
 [online](https://quantum-factory.de/open-source/DutyCycles.jl).
-Note that julia version 1.1 (or newer) is required.
+Julia version 1.0 (or newer) is required.
