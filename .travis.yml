@@ -18,6 +18,9 @@ cache:
 script:
 - julia --color=yes -e "using Pkg; Pkg.build(); Pkg.test(coverage=true)" && julia --color=yes docs/make.jl
 
+after_success:
+- julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder())'
+
 deploy:
   skip_cleanup: true
   provider: script

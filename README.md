@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Quantum-Factory/DutyCycles.jl.svg?branch=master)](https://travis-ci.org/Quantum-Factory/DutyCycles.jl)
+[![codecov](https://codecov.io/gh/Quantum-Factory/DutyCycles.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/Quantum-Factory/DutyCycles.jl)
 [![Documentation](https://img.shields.io/badge/docs-latest-blue.svg)](https://quantum-factory.de/open-source/DutyCycles.jl)
 
 # DutyCycles.jl
