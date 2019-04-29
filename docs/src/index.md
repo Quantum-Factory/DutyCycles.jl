@@ -159,16 +159,6 @@ on the `Unitful.dimension` of the argument).
     completely incoherent.
 
 ## Installation
-You may have already (partially) installed this package by following
-the instructions in the file
-[`README.md`](https://bitbucket.org/quantumfactory/dutycyclenumbers.jl/src/master/README.md). Before
-anything else, ensure you have finished installing it by following
-these instructions.
-
-!!! info "To Do"
-    Create a README.md that describes how to clone the git repository
-    and build this documentation.
-
 The programming language [`julia`](https://julialang.org) is required
 in a version of at least 1.0; the latest stable version is recommended
 and version 1.1 has been used for testing. After installing and
@@ -177,23 +167,10 @@ prompt `julia>` appears and can be changed to a package manager prompt
 of e.g. `(v1.1) pkg>` by typing the character `]`. Changing back to
 the `julia>` prompt is achieved by hitting the backspace key.
 
-In julia's package manager prompt, enter
-`add git@bitbucket.org:quantumfactory/dutycyclenumbers.jl.git`.
-For following the tutorial, you will need other packages. To get them,
-enter (also at the package manager's prompt) `add Unitful
-UnitfulAngles Measurements Plots`. The reason you do not need to
-specify a git repository is that these are already included in julia's
-package manager system.
-
-!!! info "To Do"
-    Consider including this package into julia's package
-    manager system, see the relevant [METADATA
-    repository](https://github.com/JuliaLang/METADATA.jl).
-
-!!! info "To Do"
-    Decide on an open source license and put it in a file called
-    `LICENSE` or `LICENSE.md`, as part of the package registration
-    policy.
+In julia's package manager prompt, enter `add DutyCycles`.  For
+following the tutorial, you will also need other packages. To get
+them, enter (also at the package manager's prompt) `add Unitful
+UnitfulAngles Measurements Plots`.
 
 That's it! You are ready to use this package. If you want to let julia
 spend some time for precompilation rather now then later, you can
