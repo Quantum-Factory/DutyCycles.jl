@@ -24,6 +24,7 @@ The plot above was produced by the code below.
 using DutyCycles, Plots
 using Unitful: percent, V, mA
 gr(size=(800,480)) # hide
+ENV["GKSwstype"] = "100" # hide
 
 clock = dutycycle(50percent, avg=0.5, period=1//3)
 plot(clock + 8, 0, 3, label="clock")
